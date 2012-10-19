@@ -27,128 +27,104 @@
   <div id="wrapper">
    <section id="options">
     Include IE Conditional HTML Tag?<br>
-    <span id="html-radio-group">
-     <input type="radio" checked="checked" id="html-radio-MT" name="htmltag" onclick="showSpan('#htmlMT-div', htmlMTContent);hideSpan('#htmlIE-div');"><label for="html-radio-MT">No</label>
-     <input type="radio" id="html-radio-IE" name="htmltag" onclick="hideSpan('#htmlMT-div');showSpan('#htmlIE-div', htmlIEContent);"><label for="html-radio-IE">Yes</label>
-    </span>
+    <span id="html-mt" class="selectedOption" onclick="selectOption(this,['html-ie'],['htmlMT'],['htmlIE']);"><span class="square">[ </span>NO<span class="square"> ]</span></span>&nbsp;
+    <span id="html-ie" class="deselectedOption" onclick="selectOption(this,['html-mt'],['htmlIE'],['htmlMT']);"><span class="square">[ </span>YES<span class="square"> ]</span></span>
     <br><br>
     Include X-UA-Compatible Meta Tag?<br>
-    <span id="xua-radio-group">
-     <input type="radio" checked="checked" id="xua-radio-no" name="xua" onclick="hideSpan('#xua-div');"><label for="xua-radio-no">No</label>
-     <input type="radio" id="xua-radio-yes" name="xua" onclick="showSpan('#xua-div', xuaContent);"><label for="xua-radio-yes">Yes</label>
-    </span>
+    <span id="xua-no" class="selectedOption" onclick="selectOption(this,['xua-yes'],[],['xua']);"><span class="square">[ </span>NO<span class="square"> ]</span></span>&nbsp;
+    <span id="xua-yes" class="deselectedOption" onclick="selectOption(this,['xua-no'],['xua'],[]);"><span class="square">[ </span>YES<span class="square"> ]</span></span>
     <br><br>
     Include Common Meta Tags?<br>
-    <span id="commonmetas-radio-group">
-     <input type="radio" checked="checked" id="commonmetas-radio-no" name="commonmetas" onclick="hideSpan('#commonmetas-div');"><label for="commonmetas-radio-no">No</label>
-     <input type="radio" id="commonmetas-radio-yes" name="commonmetas" onclick="showSpan('#commonmetas-div', commonMetasContent);"><label for="commonmetas-radio-yes">Yes</label>
-    </span>
+    <span id="metas-no" class="selectedOption" onclick="selectOption(this,['metas-yes'],[],['metas']);"><span class="square">[ </span>NO<span class="square"> ]</span></span>&nbsp;
+    <span id="metas-yes" class="deselectedOption" onclick="selectOption(this,['metas-no'],['metas'],[]);"><span class="square">[ </span>YES<span class="square"> ]</span></span>
     <br><br>
     Include Favorites Icon?<br>
-    <span id="favicon-radio-group">
-     <input type="radio" checked="checked" id="favicon-radio-no" name="favicon" onclick="hideSpan('#favicon-div');"><label for="favicon-radio-no">No</label>
-     <input type="radio" id="favicon-radio-yes" name="favicon" onclick="showSpan('#favicon-div', faviconContent);"><label for="favicon-radio-yes">Yes</label>
-    </span>
+    <span id="favicon-no" class="selectedOption" onclick="selectOption(this,['favicon-yes'],[],['favicon']);"><span class="square">[ </span>NO<span class="square"> ]</span></span>&nbsp;
+    <span id="favicon-yes" class="deselectedOption" onclick="selectOption(this,['favicon-no'],['favicon'],[]);"><span class="square">[ </span>YES<span class="square"> ]</span></span>
     <br><br>
     Include <a href="http://www.google.com/webfonts#HomePlace:home" target="webfonts">Google Web Fonts?</a><br>
-    <span id="googlewebfonts-radio-group">
-     <input type="radio" checked="checked" id="googlewebfonts-radio-no" name="googlewebfonts" onclick="hideSpan('#googlewebfonts-div');"><label for="googlewebfonts-radio-no">No</label>
-     <input type="radio" id="googlewebfonts-radio-yes" name="googlewebfonts" onclick="showSpan('#googlewebfonts-div', googleWebFontContent);"><label for="googlewebfonts-radio-yes">Yes</label>
-    </span>
+    <span id="webfonts-no" class="selectedOption" onclick="selectOption(this,['webfonts-yes'],[],['webfonts']);"><span class="square">[ </span>NO<span class="square"> ]</span></span>&nbsp;
+    <span id="webfonts-yes" class="deselectedOption" onclick="selectOption(this,['webfonts-no'],['webfonts'],[]);"><span class="square">[ </span>YES<span class="square"> ]</span></span>
     <br><br>
     Include CSS Stylesheet?<br>
-    <span id="stylesheet-radio-group">
-     <input type="radio" checked="checked" id="stylesheet-radio-none" name="stylesheet" value="none" onclick="hideSpan('#linkedcss-div');hideSpan('#embeddedcss-div');"><label for="stylesheet-radio-none">No</label>
-     <input type="radio" id="stylesheet-radio-linked" name="stylesheet" value="linked" onclick="showSpan('#linkedcss-div', linkedCSSContent);hideSpan('#embeddedcss-div');"><label for="stylesheet-radio-linked">Linked</label>
-     <input type="radio" id="stylesheet-radio-embedded" name="stylesheet" value="embedded" onclick="hideSpan('#linkedcss-div');showSpan('#embeddedcss-div', embeddedCSSContent);"><label for="stylesheet-radio-embedded">Embedded</label>
-     <input type="radio" id="stylesheet-radio-both" name="stylesheet" value="both" onclick="showSpan('#linkedcss-div', linkedCSSContent);showSpan('#embeddedcss-div', embeddedCSSContent);"><label for="stylesheet-radio-both">Both</label>
-    </span>
+    <span id="css-no" class="selectedOption" onclick="selectOption(this,['css-linked','css-embedded','css-both'],[],['linkedcss','embeddedcss']);"><span class="square">[ </span>NO<span class="square"> ]</span></span>&nbsp;
+    <span id="css-linked" class="deselectedOption" onclick="selectOption(this,['css-no','css-embedded','css-both'],['linkedcss'],['embeddedcss']);"><span class="square">[ </span>LINKED<span class="square"> ]</span></span>&nbsp;
+    <span id="css-embedded" class="deselectedOption" onclick="selectOption(this,['css-no','css-linked','css-both'],['embeddedcss'],['linkedcss']);"><span class="square">[ </span>EMBEDDED<span class="square"> ]</span></span>&nbsp;
+    <span id="css-both" class="deselectedOption" onclick="selectOption(this,['css-no','css-linked','css-embedded'],['linkedcss','embeddedcss'],[]);"><span class="square">[ </span>BOTH<span class="square"> ]</span></span>
     <br><br>
     Include <a href="http://www.google.com/analytics/" target="analytics">Google Analytics?</a><br>
-    <span id="analytics-radio-group">
-     <input type="radio" checked="checked" id="analytics-radio-no" name="analytics" onclick="hideSpan('#analytics-div');"><label for="analytics-radio-no">No</label>
-     <input type="radio" id="analytics-radio-yes" name="analytics" onclick="showSpan('#analytics-div', analyticsContent);"><label for="analytics-radio-yes">Yes</label>
-    </span>
+    <span id="analytics-no" class="selectedOption" onclick="selectOption(this,['analytics-yes'],[],['analytics']);"><span class="square">[ </span>NO<span class="square"> ]</span></span>&nbsp;
+    <span id="analytics-yes" class="deselectedOption" onclick="selectOption(this,['analytics-no'],['analytics'],[]);"><span class="square">[ </span>YES<span class="square"> ]</span></span>
     <br><br>
     Include <a href="http://www.jquery.com" target="jquery">jQuery?</a><br>
-    <span id="jquery-radio-group">
-     <input type="radio" checked="checked" id="jquery-radio-no" name="jquery" onclick="hideSpan('#jquery-div');hideSpan('#jqueryui-div');"><label for="jquery-radio-no">No</label>
-     <input type="radio" id="jquery-radio-yes" name="jquery" onclick="showSpan('#jquery-div', jqueryContent);hideSpan('#jqueryui-div');"><label for="jquery-radio-yes">Yes</label>
-     <input type="radio" id="jquery-radio-withui" name="jquery" onclick="showSpan('#jquery-div', jqueryContent);showSpan('#jqueryui-div', jqueryuiContent);"><label for="jquery-radio-withui">+ UI</label>
-    </span>
+    <span id="jquery-no" class="selectedOption" onclick="selectOption(this,['jquery-yes','jquery-ui'],[],['jquery','jqueryui']);"><span class="square">[ </span>NO<span class="square"> ]</span></span>&nbsp;
+    <span id="jquery-yes" class="deselectedOption" onclick="selectOption(this,['jquery-no','jquery-ui'],['jquery'],['jqueryui']);"><span class="square">[ </span>YES<span class="square"> ]</span></span>&nbsp;
+    <span id="jquery-ui" class="deselectedOption" onclick="selectOption(this,['jquery-no','jquery-yes'],['jquery','jqueryui'],[]);"><span class="square">[ </span>WITH UI<span class="square"> ]</span></span>
     <br><br>
     Include <a href="http://www.dojotoolkit.org" target="dojo">Dojo Toolkit?</a><br>
-    <span id="dojo-radio-group">
-     <input type="radio" checked="checked" id="dojo-radio-no" name="dojo" onclick="hideSpan('#dojo-div');"><label for="dojo-radio-no">No</label>
-     <input type="radio" id="dojo-radio-yes" name="dojo" onclick="showSpan('#dojo-div', dojoContent);"><label for="dojo-radio-yes">Yes</label>
-    </span>
+    <span id="dojo-no" class="selectedOption" onclick="selectOption(this,['dojo-yes'],[],['dojo']);"><span class="square">[ </span>NO<span class="square"> ]</span></span>&nbsp;
+    <span id="dojo-yes" class="deselectedOption" onclick="selectOption(this,['dojo-no'],['dojo'],[]);"><span class="square">[ </span>YES<span class="square"> ]</span></span>
     <br><br>
     Include <a href="http://www.mootools.net" target="mootools">MooTools?</a><br>
-    <span id="mootools-radio-group">
-     <input type="radio" checked="checked" id="mootools-radio-no" name="mootools" onclick="hideSpan('#mootools-div');"><label for="mootools-radio-no">No</label>
-     <input type="radio" id="mootools-radio-yes" name="mootools" onclick="showSpan('#mootools-div', mooToolsContent);"><label for="mootools-radio-yes">Yes</label>
-    </span>
+    <span id="mootools-no" class="selectedOption" onclick="selectOption(this,['mootools-yes'],[],['mootools']);"><span class="square">[ </span>NO<span class="square"> ]</span></span>&nbsp;
+    <span id="mootools-yes" class="deselectedOption" onclick="selectOption(this,['mootools-no'],['mootools'],[]);"><span class="square">[ </span>YES<span class="square"> ]</span></span>
     <br><br>
     Include <a href="http://www.prototypejs.org" target="prototype">Prototype?</a><br>
-    <span id="prototype-radio-group">
-     <input type="radio" checked="checked" id="prototype-radio-no" name="prototype" onclick="hideSpan('#prototype-div');"><label for="prototype-radio-no">No</label>
-     <input type="radio" id="prototype-radio-yes" name="prototype" onclick="showSpan('#prototype-div', prototypeContent);"><label for="prototype-radio-yes">Yes</label>
-    </span>
+    <span id="prototype-no" class="selectedOption" onclick="selectOption(this,['prototype-yes'],[],['prototype']);"><span class="square">[ </span>NO<span class="square"> ]</span></span>&nbsp;
+    <span id="prototype-yes" class="deselectedOption" onclick="selectOption(this,['prototype-no'],['prototype'],[]);"><span class="square">[ </span>YES<span class="square"> ]</span></span>
     <br><br>
     Include <a href="http://www.modernizr.com" target="modernizr">Modernizr?</a><br>
-    <span id="modernizr-radio-group">
-     <input type="radio" checked="checked" id="modernizr-radio-no" name="modernizr" onclick="hideSpan('#modernizr-div');"><label for="modernizr-radio-no">No</label>
-     <input type="radio" id="modernizr-radio-yes" name="modernizr" onclick="showSpan('#modernizr-div', modernizrContent);"><label for="modernizr-radio-yes">Yes</label>
-    </span>
+    <span id="modernizr-no" class="selectedOption" onclick="selectOption(this,['modernizr-yes'],[],['modernizr']);"><span class="square">[ </span>NO<span class="square"> ]</span></span>&nbsp;
+    <span id="modernizr-yes" class="deselectedOption" onclick="selectOption(this,['modernizr-no'],['modernizr'],[]);"><span class="square">[ </span>YES<span class="square"> ]</span></span>
     <br><br>
     Include Autorun Javascript?<br>
-    <span id="javascript-radio-group">
-     <input type="radio" checked="checked" id="javascript-radio-none" name="javascript" value="none" onclick="hideSpan('#domready-div');hideSpan('#pageloaded-div');"><label for="javascript-radio-none">No</label>
-     <input type="radio" id="javascript-radio-domready" name="javascript" value="domready" onclick="showSpan('#domready-div', domReadyContent);hideSpan('#pageloaded-div');"><label for="javascript-radio-domready">On DOM Ready</label>
-     <input type="radio" id="javascript-radio-pageloaded" name="javascript" value="pageloaded" onclick="hideSpan('#domready-div');showSpan('#pageloaded-div', pageLoadedContent);"><label for="javascript-radio-pageloaded">On Page Loaded</label>
-    </span>
+    <span id="autorun-no" class="selectedOption" onclick="selectOption(this,['autorun-dom','autorun-page'],[],['domready','pageloaded']);"><span class="square">[ </span>NO<span class="square"> ]</span></span>&nbsp;
+    <span id="autorun-dom" class="deselectedOption" onclick="selectOption(this,['autorun-no','autorun-page'],['domready'],['pageloaded']);"><span class="square">[ </span>ON DOM READY<span class="square"> ]</span></span>&nbsp;
+    <span id="autorun-page" class="deselectedOption" onclick="selectOption(this,['autorun-no','autorun-dom'],['pageloaded'],['domready']);"><span class="square">[ </span>ON PAGE LOADED<span class="square"> ]</span></span>
    </section>
    <div id="markupWrapper">
     <code id="markup" onclick="selectCode()">
      <span>
       &lt;!DOCTYPE html&gt;<br>
-	 </span>
-	 <span id="htmlMT-div" style="display:block;">&lt;html&gt;<br></span>
-	 <span id="htmlIE-div" style="display:none;"></span>
-	 <span>
-      &nbsp;&lt;head&gt;<br>
-	  &nbsp;&nbsp;&lt;meta charset=&quot;UTF-8&quot;&gt;<br>
-	 </span>
-     <span id="xua-div" style="display:none;"></span>
-     <span>
-	  &nbsp;&nbsp;&lt;title&gt;<span class="edit" onclick="editText('Enter page title',this);">title</span>&lt;/title&gt;<br>
      </span>
-     <span id="commonmetas-div" style="display:none;"></span>
-     <span id="favicon-div" style="display:none;"></span>
-     <span id="googlewebfonts-div" style="display:none;"></span>
-     <span id="linkedcss-div" style="display:none;"></span>
-     <span id="embeddedcss-div" style="display:none;"></span>
-     <span id="analytics-div" style="display:none;"></span>
+     <span id="htmlMT-span" style="display:block;">&lt;html&gt;<br></span>
+     <span id="htmlIE-span" style="display:none;"></span>
+     <span>
+      &nbsp;&lt;head&gt;<br>
+      &nbsp;&nbsp;&lt;meta charset=&quot;UTF-8&quot;&gt;<br>
+     </span>
+     <span id="xua-span" style="display:none;"></span>
+     <span>
+      &nbsp;&nbsp;&lt;title&gt;<span class="edit" onclick="editText('Enter page title',this);">title</span>&lt;/title&gt;<br>
+     </span>
+     <span id="metas-span" style="display:none;"></span>
+     <span id="favicon-span" style="display:none;"></span>
+     <span id="webfonts-span" style="display:none;"></span>
+     <span id="linkedcss-span" style="display:none;"></span>
+     <span id="embeddedcss-span" style="display:none;"></span>
+     <span id="analytics-span" style="display:none;"></span>
      <span>
       &nbsp;&lt;/head&gt;<br>
       &nbsp;&lt;body&gt;<br>
       &nbsp;&nbsp;<br>
      </span>
-	 <span id="jquery-div" style="display:none;"></span>
-	 <span id="jqueryui-div" style="display:none;"></span>
-     <span id="dojo-div" style="display:none;"></span>
-     <span id="mootools-div" style="display:none;"></span>
-     <span id="prototype-div" style="display:none;"></span>
-     <span id="modernizr-div" style="display:none;"></span>
-     <span id="domready-div" style="display:none;"></span>
-     <span id="pageloaded-div" style="display:none;"></span>
+     <span id="jquery-span" style="display:none;"></span>
+     <span id="jqueryui-span" style="display:none;"></span>
+     <span id="dojo-span" style="display:none;"></span>
+     <span id="mootools-span" style="display:none;"></span>
+     <span id="prototype-span" style="display:none;"></span>
+     <span id="modernizr-span" style="display:none;"></span>
+     <span id="domready-span" style="display:none;"></span>
+     <span id="pageloaded-span" style="display:none;"></span>
      <span>
       &nbsp;&lt;/body&gt;<br>
       &lt;/html&gt;<br>
      </span>
     </code>
-	<span id="selectHintText">Click in above box to auto-select all markup.</span>
-	<span id="editHintText">Click on orange text to edit values on page.<br></span>
+    <span id="hintWrapper">
+     <span id="selectHintText">Click in above box to auto-select all markup.</span>
+     <span id="editHintText">Click on orange text to edit values on page.<br><br></span>
+    </span>
    </div>
    <div id="bottomSpacer"><br></div>
   </div>
