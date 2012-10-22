@@ -1,6 +1,6 @@
 html{height:100%;}
 body{margin:0px;background-color:#CCCCCC;font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:11px;}
-#wrapper{margin:140px 140px;}
+#wrapper{margin:120px 120px;margin-right:360px;}
 #options{display:block;float:left;margin-right:11px;padding:11px;white-space:nowrap;border-style:solid;border-width:1px;border-color:#000000;border-radius:11px;background-color:#FFFFFF;}
 .selectedOption{cursor:pointer;color:#E44D26;font-weight:bold;font-size:10px;}
 .deselectedOption{cursor:pointer;color:#808080;font-size:10px;}
@@ -15,6 +15,7 @@ body{margin:0px;background-color:#CCCCCC;font-family:'Segoe UI',Helvetica,Arial,
 #selectHintText{display:none;color:#389220;}
 #selectHintText,#editHintText{font-style:italic;}
 #editHintText{display:inline;color:#E44D26;}
+#adWrapper{position:absolute;top:120px;right:120px;}
 #bottomSpacer{clear:both;}
 footer{position:fixed;bottom:0px;width:100%;text-align:center;color:#CCCCCC;background-color:#333333;padding:5px;}
 a{text-decoration:none;color:#389220;}
