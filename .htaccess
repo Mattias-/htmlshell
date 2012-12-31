@@ -8,5 +8,5 @@ RewriteCond %{REQUEST_FILENAME}.gz -f
 RewriteRule (.*) $1.gz [L]
 
 <Files "index.html">
- Header set X-UA-Compatible "chrome=1"
+Header set X-UA-Compatible "chrome=1"
 </Files>

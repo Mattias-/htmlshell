@@ -7,7 +7,7 @@ body{margin:0px;background-color:#CCCCCC;font-family:'Segoe UI',Helvetica,Arial,
 .deselectedOption:hover{color:#FD643A;}
 .square{color:#000000;font-size:11px;font-weight:normal;}
 #markupWrapper{overflow:hidden;}
-#markup{display:block;padding:11px;overflow:hidden;font-family:monospace;border-style:solid;border-width:1px;border-color:#000000;border-radius:11px;background: url('./images/htmlshellfaded.png') no-repeat right -70px;background-color:#FFFFFF;line-height:14px;}
+#markup{display:block;padding:11px;overflow:hidden;font-family:monospace;border-style:solid;border-width:1px;border-color:#000000;border-radius:11px;background: url('./images/htmlshell.png') no-repeat right 0px;background-color:#FFFFFF;line-height:14px;}
 #markup span{display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
 #markup .edit{display:inline;color:#E44D26;cursor:pointer;}
 #markup .edit:hover{color:#FD643A}
@@ -17,7 +17,8 @@ body{margin:0px;background-color:#CCCCCC;font-family:'Segoe UI',Helvetica,Arial,
 #editHintText{display:inline;color:#E44D26;}
 #adWrapper{position:absolute;top:120px;right:120px;}
 #bottomSpacer{clear:both;}
-footer{position:fixed;bottom:0px;width:100%;text-align:center;color:#CCCCCC;background-color:#333333;padding:5px;}
+footer{position:fixed;bottom:0px;width:100%;text-align:center;color:#CCCCCC;background-color:#333333;padding:11px;}
+footer a{color:#78ba66;}
 a{text-decoration:none;color:#389220;}
 a:hover{text-decoration:underline;}
 ::selection{background-color:#389220;}
