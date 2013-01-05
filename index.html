@@ -81,8 +81,26 @@
     <span id="autorun-dom" class="deselectedOption" onclick="selectOption(this,['autorun-no','autorun-page'],['domready'],['pageloaded']);"><span class="square">[ </span>ON DOM READY<span class="square"> ]</span></span>&nbsp;
     <span id="autorun-page" class="deselectedOption" onclick="selectOption(this,['autorun-no','autorun-dom'],['pageloaded'],['domready']);"><span class="square">[ </span>ON PAGE LOADED<span class="square"> ]</span></span>
    </section>
+   <div id="ipsumWrapper">
+    <div id="ipsum" onclick="selectCode(this)">
+     <span><span style="font-weight:bold;display:inline;">Lorem ipsum</span> dolor sit amet, consectetur adipiscing elit. Quod equidem non reprehendo; Ac tamen hic mallet non dolere. Quid vero? Vide, quaeso, rectumne sit. Venit ad extremum;<br/></span>
+     <span id="ipsum1"><br/>Ut id aliis narrare gestiant? Proclivi currit oratio. Easdemne res? Erat enim Polemonis. Sed plane dicit quod intellegit. Sed vos squalidius, illorum vides quam niteat oratio.<br/></span>
+     <span id="ipsum2"><br/>Proclivi currit oratio. Audeo dicere, inquit. Sed quid sentiat, non videtis. Satis est ad hoc responsum. Confecta res esset. Quamquam te quidem video minime esse deterritum. Quid sequatur, quid repugnet, vident.<br/></span>
+	 <span id="ipsum3"><br/>Tamen a proposito, inquam, aberramus. Qui-vere falsone, quaerere mittimus-dicitur oculis se privasse; Quibus ego vehementer assentior. At certe gravius. Vide, quantum, inquam, fallare, Torquate.<br/></span>
+     <span id="ipsum4"><br/>Non est igitur voluptas bonum. Est enim effectrix multarum et magnarum voluptatum. Quare attende, quaeso. Praeteritis, inquit, gaudeo. Immo videri fortasse.<br/></span>
+     <span id="ipsum5"><br/>At ille pellit, qui permulcet sensum voluptate. Falli igitur possumus. Iam enim adesse poterit. Age, inquies, ista parva sunt. Sequitur disserendi ratio cognitioque naturae; Pauca mutat vel plura sane;<br/></span>
+     <span id="ipsum6" style="display:none;"></span>
+     <span id="ipsum7" style="display:none;"></span>
+     <span id="ipsum8" style="display:none;"></span>
+     <span id="ipsum9" style="display:none;"></span>
+	</div>
+	<br/>
+	<span id="more" class="enabled" onclick="showMore();"><span class="square">[ </span>MORE<span class="square"> ]</span></span>&nbsp;
+	<span id="less" class="enabled" onclick="showLess();"><span class="square">[ </span>LESS<span class="square"> ]</span></span>&nbsp;
+	<span class="selectHintText">Click on text to auto-select</span>
+   </div>
    <div id="markupWrapper">
-    <code id="markup" onclick="selectCode()">
+    <code id="markup" onclick="selectCode(this)">
      <span>
       &lt;!DOCTYPE html&gt;<br>
      </span>
@@ -121,7 +139,7 @@
      </span>
     </code>
     <span id="hintWrapper">
-     <span id="selectHintText">Click in above box to auto-select all markup.</span>
+     <span class="selectHintText">Click in above box to auto-select all markup.</span>
      <span id="editHintText">Click on orange text to edit values on page.<br><br></span>
     </span>
    </div>
@@ -129,9 +147,9 @@
     <script type="text/javascript"><!--
      google_ad_client = "ca-pub-6828976609835141";
      /* html shell */
-     google_ad_slot = "2941236433";
-     google_ad_width = 120;
-     google_ad_height = 600;
+     google_ad_slot = "1005484066";
+     google_ad_width = 728;
+     google_ad_height = 90;
      //-->
     </script>
     <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
@@ -139,7 +157,7 @@
    <div id="bottomSpacer"><br></div>
   </div>
   <footer>
-   Send feedback to <a href="mailto:steve.niles@gmail.com">steve.niles@gmail.com</a> or help out on <a href="https://github.com/steveniles/htmlshell" target="github">Github</a>.
+   Send feedback to <a href="mailto:steve.niles@gmail.com">steve.niles@gmail.com</a> or contribute on <a href="https://github.com/steveniles/htmlshell" target="github">Github</a>.
   </footer>
  </body>
 </html>

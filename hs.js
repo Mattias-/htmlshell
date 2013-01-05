@@ -1,4 +1,5 @@
 var selectCodeOn = true;
+var ipsumCount = 6;
 var content = 
 {
  "htmlMT":"&lt;html&gt;<br>",
@@ -19,21 +20,33 @@ var content =
  "domready":"&nbsp;&nbsp;&lt;script type=&quot;text/javascript&quot;&gt;<br>&nbsp;&nbsp;&nbsp;function autorun()<br>&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;if (document.addEventListener) document.addEventListener(&quot;DOMContentLoaded&quot;, autorun, false);<br>&nbsp;&nbsp;&nbsp;else if (document.attachEvent) document.attachEvent(&quot;onreadystatechange&quot;, autorun);<br>&nbsp;&nbsp;&nbsp;else window.onload = autorun;<br>&nbsp;&nbsp;&lt;/script&gt;<br>",
  "pageloaded":"&nbsp;&nbsp;&lt;script type=&quot;text/javascript&quot;&gt;<br>&nbsp;&nbsp;&nbsp;function autorun()<br>&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;if (window.addEventListener) window.addEventListener(&quot;load&quot;, autorun, false);<br>&nbsp;&nbsp;&nbsp;else if (window.attachEvent) window.attachEvent(&quot;onload&quot;, autorun);<br>&nbsp;&nbsp;&nbsp;else window.onload = autorun;<br>&nbsp;&nbsp;&lt;/script&gt;<br>"
 };
+var ipsumContent = 
+{
+ "ipsum1":"<br/>Ut id aliis narrare gestiant? Proclivi currit oratio. Easdemne res? Erat enim Polemonis. Sed plane dicit quod intellegit. Sed vos squalidius, illorum vides quam niteat oratio.<br/>",
+ "ipsum2":"<br/>Proclivi currit oratio. Audeo dicere, inquit. Sed quid sentiat, non videtis. Satis est ad hoc responsum. Confecta res esset. Quamquam te quidem video minime esse deterritum. Quid sequatur, quid repugnet, vident.<br/>",
+ "ipsum3":"<br/>Tamen a proposito, inquam, aberramus. Qui-vere falsone, quaerere mittimus-dicitur oculis se privasse; Quibus ego vehementer assentior. At certe gravius. Vide, quantum, inquam, fallare, Torquate.<br/>",
+ "ipsum4":"<br/>Non est igitur voluptas bonum. Est enim effectrix multarum et magnarum voluptatum. Quare attende, quaeso. Praeteritis, inquit, gaudeo. Immo videri fortasse.<br/>",
+ "ipsum5":"<br/>At ille pellit, qui permulcet sensum voluptate. Falli igitur possumus. Iam enim adesse poterit. Age, inquies, ista parva sunt. Sequitur disserendi ratio cognitioque naturae; Pauca mutat vel plura sane;<br/>",
+ "ipsum6":"<br/>Nemo igitur esse beatus potest. Iam id ipsum absurdum, maximum malum neglegi. Idem iste, inquam, de voluptate quid sentit? Haeret in salebra. Et quidem, inquit, vehementer errat; Quis istud possit, inquit, negare?<br/>",
+ "ipsum7":"<br/>Audeo dicere, inquit. Cur iustitia laudatur? Erat enim Polemonis. Quae similitudo in genere etiam humano apparet. Sumenda potius quam expetenda. Venit ad extremum; Sed ille, ut dixi, vitiose. Proclivi currit oratio.<br/>",
+ "ipsum8":"<br/>Duo Reges: constructio interrete. Quod quidem nobis non saepe contingit. Nihilo magis. Quid me istud rogas? Quantum Aristoxeni ingenium consumptum videmus in musicis?<br/>",
+ "ipsum9":"<br/>Comprehensum, quod cognitum non habet? Sumenda potius quam expetenda. Quaerimus enim finem bonorum. Laboro autem non sine causa; Sint ista Graecorum; Utram tandem linguam nescio?<br/>",
+};
 
 $(function()
 {
  if(window.getSelection)
  {
-  $("#selectHintText").css("display", "inline");
+  $(".selectHintText").css("display", "inline");
  }
 });
 
-function selectCode()
+function selectCode(target)
 {
  if(window.getSelection && selectCodeOn)
  {
   var codeRange = document.createRange();
-  codeRange.selectNodeContents(document.getElementById("markup"));
+  codeRange.selectNodeContents(target);
   window.getSelection().removeAllRanges();
   window.getSelection().addRange(codeRange);
  }
@@ -68,4 +81,33 @@ function selectOption(selectedElement, deselectedElementList, showSpanNameList, 
    $("#" + spanName + "-span").html("");
   });
  });
+}
+
+function showMore()
+{
+ if(ipsumCount < 10)
+ {
+  $("#ipsum" + ipsumCount).html(ipsumContent["ipsum" + ipsumCount++]).slideDown();
+  $("#less").addClass("enabled").removeClass("disabled");
+ }
+ if(ipsumCount == 10)
+ {
+  $("#more").addClass("disabled").removeClass("enabled");
+ }
+}
+
+function showLess()
+{
+ if(ipsumCount > 1)
+ {
+  $("#ipsum" + --ipsumCount).slideUp(function()
+  {
+   $("#ipsum" + ipsumCount).html("");
+  });
+  $("#more").addClass("enabled").removeClass("disabled");
+ }
+ if(ipsumCount == 1)
+ {
+  $("#less").addClass("disabled").removeClass("enabled");
+ }
 }
