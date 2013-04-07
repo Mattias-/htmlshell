@@ -24,6 +24,7 @@ body{margin:0px;background-color:#CCC;font-family:'Segoe UI',Helvetica,Arial,san
 #bottomSpacer{clear:both;}
 footer{position:fixed;bottom:0px;width:100%;text-align:center;color:#CCC;background-color:#333;padding:11px;}
 footer a{color:#78ba33;}
+.hash{color:#FFF;font-family:monospace;}
 a{text-decoration:none;color:#389220;}
 a:hover{text-decoration:underline;}
 ::selection{background-color:#389220;}
